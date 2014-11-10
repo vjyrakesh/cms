@@ -1,0 +1,12 @@
+<html>
+<head><title>Search</title></head>
+<body>
+<p>You searched for {{ query }}; results are listed below</p>
+<ul>
+	{% for result in results%}
+	<li>{{ result.title }}</li>
+	{% endfor %}
+	</ul>
+</body>
+
+</html>

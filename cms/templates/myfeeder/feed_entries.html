@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>{{feedtitle}} - Myfeeder</title></head>
+<body>
+	
+	{% for one_entry in entries|slice:":10" %}
+		<h3><a href="{{one_entry.link}}">{{ one_entry.title }}</a></h3>
+		<p>Published on {{ one_entry.updated }}</p>
+		<p>{{ one_entry.description|safe }}</p>
+		<hr/>
+	{% endfor %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<head>
+<title>Home - Myfeeder</title>
+</head>
+<body>
+<h3>Feeds:</h3>
+<ul>
+	{% for onefeed in feeds %}
+		<li><a href='{{onefeed.get_absolute_url}}'>{{onefeed.title}}</li>
+	{% endfor %}
+	</ul>
+</body>	
+</html>

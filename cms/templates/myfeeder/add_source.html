@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Add feed source</title>
+</head>
+<body>
+	<center>
+		<form action='/addsource/' method='post'>{% csrf_token %}
+			{{ form.as_p}}
+			<input type='submit' value='Add' />
+			<input type='reset' value='Clear'/>
+		</form>
+	</center>
+</body>
+</html>
