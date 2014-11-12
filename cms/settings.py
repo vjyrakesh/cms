@@ -93,10 +93,10 @@ STATIC_ROOT = ''
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = ('C:/RAKESH/djangowork/cms/cms/static',)
+STATICFILES_DIRS = ('C:/RAKESH/projects/cms/cms/static',)
 
 TEMPLATE_DIRS = (
-    'C:/RAKESH/djangowork/cms/cms/templates',
+    'C:/RAKESH/projects/cms/cms/templates',
     
 )
 

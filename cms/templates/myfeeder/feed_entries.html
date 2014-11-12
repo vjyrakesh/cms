@@ -1,13 +1,33 @@
 <html>
 <head>
-<title>{{feedtitle}} - Myfeeder</title></head>
+<title>{{feedtitle}} - Myfeeder</title>
+<link rel="stylesheet" type="text/css" href="../../static/myfeeder/styles.css">
+</head>
 <body>
-	
-	{% for one_entry in entries|slice:":10" %}
-		<h3><a href="{{one_entry.link}}">{{ one_entry.title }}</a></h3>
-		<p>Published on {{ one_entry.updated }}</p>
-		<p>{{ one_entry.description|safe }}</p>
-		<hr/>
-	{% endfor %}
+	<h2>Feed entries for {{ feedtitle }}</h2>
+	<a id="gotoPageTopLink" href="#">Top</a>
+	<a id="homeLink" href="/myfeeder/home/">Home</a>
+	<div id="feed_entries">
+		{% for one_entry in entries %}
+		<div class="firstFeedDivs">
+			<h3><a href="{{one_entry.link}}">{{ one_entry.title }}</a></h3>
+			<p>Published on {{ one_entry.updated }}</p>
+			<p>{{ one_entry.description|safe }}</p>
+		</div>
+		{% endfor %}
+		<div class="pagination">
+			<span class="step_links">
+				{% if entries.has_previous %}
+					<a href="?page={{ entries.previous_page_number }}">Previous</a>
+				{% endif %}
+				<span class="current">
+					Page {{entries.number}} of {{entries.paginator.num_pages}}
+				</span>
+				{% if entries.has_next %}
+					<a href="?page={{ entries.next_page_number }}">Next</a>
+				{% endif %}
+			</span>
+		</div>
+	</div>
 </body>
 </html>

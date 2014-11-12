@@ -1,13 +1,42 @@
 <html>
 <head>
 <title>Home - Myfeeder</title>
+<link rel="stylesheet" type="text/css" href="../../static/myfeeder/styles.css">
 </head>
 <body>
-<h3>Feeds:</h3>
-<ul>
-	{% for onefeed in feeds %}
-		<li><a href='{{onefeed.get_absolute_url}}'>{{onefeed.title}}</li>
-	{% endfor %}
-	</ul>
+	
+	<!-- Feed list -->
+	<div id="feed_list">
+		<h3>Feeds:</h3>
+			<ul>
+				{% for onefeed in feeds %}
+					<li><a href='{{onefeed.get_absolute_url}}'>{{onefeed.title}}</li>
+				{% endfor %}
+			</ul>
+	</div>
+	<!-- First feed entries -->
+	<div id="first_feed_entries">
+		{% for one_entry in firstFeedEntries %}
+		<div class="firstFeedDivs">
+			<h3><a href="{{one_entry.link}}">{{ one_entry.title }}</a></h3>
+			<p>Published on {{ one_entry.updated }}</p>
+			<p>{{ one_entry.description|safe }}</p>
+		</div>
+		{% endfor %}
+		<div class="pagination">
+			<span class="step_links">
+				{% if firstFeedEntries.has_previous %}
+					<a href="?page={{ firstFeedEntries.previous_page_number }}">Previous</a>
+				{% endif %}
+				<span class="current">
+					Page {{firstFeedEntries.number}} of {{firstFeedEntries.paginator.num_pages}}
+				</span>
+				{% if firstFeedEntries.has_next %}
+					<a href="?page={{ firstFeedEntries.next_page_number }}">Next</a>
+				{% endif %}
+			</span>
+		</div>
+	</div>
+	
 </body>	
 </html>
