@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm,TextInput
 from myfeeder.models import FeedSource
 
 
@@ -7,3 +7,4 @@ class FeedSourceForm(ModelForm):
 	class Meta:
 		model = FeedSource
 		fields = ['link','category']
+		widgets = {'link':TextInput(attrs={'class':'form-control'})}

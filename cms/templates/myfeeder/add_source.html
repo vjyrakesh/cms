@@ -1,14 +1,19 @@
 <html>
 <head>
 <title>Add feed source</title>
+<link rel="stylesheet" type="text/css" href="../../static/myfeeder/css/bootstrap.min.css">
 </head>
 <body>
-	<center>
-		<form action='/addsource/' method='post'>{% csrf_token %}
+	<!--<center>-->
+	<div class="container">
+		<h1>Add a feed source</h1>
+		
+		<form role="form" action='/addsource/' method='post'>{% csrf_token %}
 			{{ form.as_p}}
 			<input type='submit' value='Add' />
-			<input type='reset' value='Clear'/>
+			<input type='reset' value='Clear' />
 		</form>
-	</center>
+		</div>
+	<!--</center>-->
 </body>
 </html>
